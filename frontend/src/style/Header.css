@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 30px;
+    background-color: black;
+    color: #fff;
+  }
+
+.register-button{
+    margin-left: 800px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #4c91df;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .register-button:hover {
+    background-color: #0056b3;
+  }
+
+  .login-button{
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #4c91df;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .login-button:hover {
+    background-color: #0056b3;
+  }

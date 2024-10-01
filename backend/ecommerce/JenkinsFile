@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'BRANCH_NAME', defaultValue: 'feature/backend', description: 'Enter the branch name to switch to')
+        string(name: 'REPO_URL', defaultValue: 'https://tools.publicis.sapient.com/bitbucket/scm/psir/case-study-ecommerce-meghana-gannavaram.git', description: 'Enter the Git repository URL')
+        string(name: 'MODULE_DIR', defaultValue: 'Ecommerce', description: 'Enter the directory containing the module to build and test')
+    }
+    stages {
+        stage("Build") {
+            steps {
+                script {
+                  checkout scmGit(branches: [[name: 'feature/backend']], extensions: [], userRemoteConfigs: [[credentialsId: 'BBDC-OTM5MTAzOTI1MjYyOhNcK37iQJyQufUwl6zV6LfjuUAk', url: 'https://tools.publicis.sapient.com/bitbucket/scm/psir/case-study-banking-mulagundla-tejaswi.git']])
+                }
+            }
+        }
+        stage("Compile") {
+            steps {
+                dir("${params.MODULE_DIR}") {
+                    sh 'mvn compile'
+                }
+            }
+        }
+        stage("Test") {
+            steps {
+                dir("${params.MODULE_DIR}") {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+    }
+}
