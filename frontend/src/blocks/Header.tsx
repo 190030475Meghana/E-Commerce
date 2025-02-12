@@ -7,7 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleRegister = () => {
-    navigate("/register");
+    navigate("/");
   };
 
   const handleLogin = () => {
